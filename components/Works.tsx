@@ -18,7 +18,7 @@ const works: Work[] = [
     id: 1,
     title: "静寂の住居",
     category: "住宅",
-    image: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
     aspectRatio: "portrait",
   },
   {
@@ -53,7 +53,7 @@ const works: Work[] = [
     id: 6,
     title: "素材の本質",
     category: "住宅",
-    image: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&q=80",
     aspectRatio: "portrait",
   },
 ];
