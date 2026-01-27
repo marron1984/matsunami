@@ -27,25 +27,25 @@ export default function Footer() {
               <div className="flex items-start space-x-3">
                 <Mail className="w-4 h-4 mt-1 text-[#1A1A1A]/60" />
                 <a
-                  href="mailto:info@mma-design.jp"
+                  href="mailto:info@mma-design.com"
                   className="font-sans text-sm text-[#1A1A1A]/70 hover:text-[#1A1A1A] transition-colors"
                 >
-                  info@mma-design.jp
+                  info@mma-design.com
                 </a>
               </div>
               <div className="flex items-start space-x-3">
                 <Phone className="w-4 h-4 mt-1 text-[#1A1A1A]/60" />
                 <a
-                  href="tel:+81-3-1234-5678"
+                  href="tel:06-4307-4682"
                   className="font-sans text-sm text-[#1A1A1A]/70 hover:text-[#1A1A1A] transition-colors"
                 >
-                  +81-3-1234-5678
+                  06-4307-4682
                 </a>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="w-4 h-4 mt-1 text-[#1A1A1A]/60" />
                 <p className="font-sans text-sm text-[#1A1A1A]/70">
-                  東京都渋谷区...
+                  〒530-0047　大阪市北区西天満4丁目9-2-413
                 </p>
               </div>
             </div>
