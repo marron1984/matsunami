@@ -89,9 +89,10 @@ export default function Works() {
           transition={{ duration: 0.8 }}
           className="mb-16 md:mb-24"
         >
-          <h2 className="font-serif text-4xl md:text-5xl text-off-white tracking-wider">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-off-white tracking-wider mb-4">
             SELECTED WORKS
           </h2>
+          <div className="w-24 h-px bg-off-white/20 mt-6" />
         </motion.div>
 
         <div className="columns-1 md:columns-2 lg:columns-3 gap-4 md:gap-6">

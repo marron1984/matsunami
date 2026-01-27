@@ -46,23 +46,26 @@ export default function Hero() {
             onLoad={() => index === 0 && setIsLoaded(true)}
             quality={90}
           />
-          <div className="absolute inset-0 bg-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
         </motion.div>
       ))}
 
-      <div className="absolute inset-0 flex items-end justify-start p-8 md:p-16 z-10">
+      <div className="absolute inset-0 flex items-end justify-start p-8 md:p-16 lg:p-24 z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 50 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="max-w-2xl"
+          transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
+          className="max-w-3xl"
         >
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-light text-white mb-4 tracking-wider">
-            MMA DESIGN
-          </h1>
-          <p className="font-sans text-sm md:text-base text-white/90 tracking-widest uppercase">
-            建築が語る静寂
-          </p>
+          <div className="mb-6">
+            <div className="w-16 h-px bg-white/60 mb-6" />
+            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-extralight text-white mb-6 tracking-[0.05em] leading-[1.1]">
+              MMA DESIGN
+            </h1>
+            <p className="font-sans text-xs md:text-sm text-white/80 tracking-[0.3em] uppercase font-light">
+              建築が語る静寂
+            </p>
+          </div>
         </motion.div>
       </div>
 

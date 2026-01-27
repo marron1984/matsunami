@@ -26,36 +26,34 @@ export default function Header() {
       }`}
     >
       <nav className="container mx-auto px-6 py-6 md:py-8">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-end">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="font-serif text-xl md:text-2xl font-medium tracking-wider"
-          >
-            MMA DESIGN
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="hidden md:flex items-center space-x-8 text-sm tracking-wider"
+            className="flex items-center space-x-6 md:space-x-12 text-[10px] md:text-xs tracking-[0.2em] uppercase font-light"
           >
             <a
+              href="#about"
+              className="hover:opacity-60 transition-opacity duration-300"
+            >
+              ABOUT
+            </a>
+            <a
               href="#works"
-              className="hover:opacity-70 transition-opacity duration-300"
+              className="hover:opacity-60 transition-opacity duration-300"
             >
               WORKS
             </a>
             <a
               href="#concept"
-              className="hover:opacity-70 transition-opacity duration-300"
+              className="hover:opacity-60 transition-opacity duration-300"
             >
               CONCEPT
             </a>
             <a
               href="#contact"
-              className="hover:opacity-70 transition-opacity duration-300"
+              className="hover:opacity-60 transition-opacity duration-300"
             >
               CONTACT
             </a>
