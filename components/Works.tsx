@@ -1,8 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { useInView } from "framer-motion";
 import Image from "next/image";
 
 interface Work {
@@ -73,45 +72,69 @@ const getAspectRatioClass = (aspectRatio: string) => {
 
 export default function Works() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const isInView = useInView(ref, { once: true, amount: 0.05 });
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
     <section
       id="works"
       ref={ref}
-      className="min-h-screen bg-[#1A1A1A] py-24 md:py-32 px-6 md:px-12"
+      className="min-h-screen bg-dark-warm py-24 md:py-32 px-6 md:px-12"
     >
       <div className="container mx-auto max-w-7xl">
+        {/* タイトル */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            damping: 25,
+          }}
           className="mb-16 md:mb-24"
         >
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-off-white tracking-wider mb-4">
             SELECTED WORKS
           </h2>
-          <div className="w-24 h-px bg-off-white/20 mt-6" />
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            className="w-24 h-px bg-accent-warm/40 mt-6 origin-left"
+          />
         </motion.div>
 
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-4 md:gap-6">
+        {/* マソンリーグリッド */}
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-5 md:gap-7">
           {works.map((work, index) => (
             <motion.div
               key={work.id}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="break-inside-avoid mb-4 md:mb-6 group cursor-pointer"
+              initial={{ opacity: 0, y: 60, scale: 0.95 }}
+              animate={
+                isInView
+                  ? { opacity: 1, y: 0, scale: 1 }
+                  : { opacity: 0, y: 60, scale: 0.95 }
+              }
+              transition={{
+                type: "spring",
+                stiffness: 80,
+                damping: 25,
+                delay: index * 0.12,
+              }}
+              className="break-inside-avoid mb-5 md:mb-7 group cursor-pointer"
               onMouseEnter={() => setHoveredId(work.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
-              <div className="relative overflow-hidden bg-off-white/5">
+              <div className="relative overflow-hidden rounded-soft">
                 <motion.div
                   animate={{
-                    scale: hoveredId === work.id ? 1.05 : 1,
+                    scale: hoveredId === work.id ? 1.04 : 1,
                   }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 30,
+                  }}
                   className={getAspectRatioClass(work.aspectRatio)}
                 >
                   <Image
@@ -121,21 +144,43 @@ export default function Works() {
                     className="object-cover"
                     quality={85}
                   />
+
+                  {/* ホバーオーバーレイ - 下からグラデーション */}
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{
                       opacity: hoveredId === work.id ? 1 : 0,
                     }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute inset-0 bg-black/40 flex items-end justify-start p-6"
+                    transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+                    className="absolute inset-0 bg-gradient-to-t from-dark-warm/70 via-dark-warm/20 to-transparent flex items-end justify-start p-6 md:p-8"
                   >
                     <div>
-                      <h3 className="font-serif text-xl md:text-2xl text-white mb-1">
-                        {work.title}
-                      </h3>
-                      <p className="font-sans text-sm text-white/80 uppercase tracking-wider">
+                      {/* カテゴリ */}
+                      <motion.p
+                        initial={{ y: 10, opacity: 0 }}
+                        animate={
+                          hoveredId === work.id
+                            ? { y: 0, opacity: 1 }
+                            : { y: 10, opacity: 0 }
+                        }
+                        transition={{ duration: 0.3, delay: 0.05 }}
+                        className="font-sans text-[10px] text-accent-warm uppercase tracking-[0.3em] mb-2"
+                      >
                         {work.category}
-                      </p>
+                      </motion.p>
+                      {/* タイトル */}
+                      <motion.h3
+                        initial={{ y: 15, opacity: 0 }}
+                        animate={
+                          hoveredId === work.id
+                            ? { y: 0, opacity: 1 }
+                            : { y: 15, opacity: 0 }
+                        }
+                        transition={{ duration: 0.3, delay: 0.1 }}
+                        className="font-serif text-xl md:text-2xl text-white"
+                      >
+                        {work.title}
+                      </motion.h3>
                     </div>
                   </motion.div>
                 </motion.div>

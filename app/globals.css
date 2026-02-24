@@ -3,14 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 26, 26, 26;
-  --background-rgb: 245, 245, 243;
+  --foreground-rgb: 44, 40, 37;
+  --background-rgb: 250, 248, 245;
+  --accent-rgb: 196, 168, 130;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 245, 245, 243;
-    --background-rgb: 26, 26, 26;
+    --foreground-rgb: 250, 248, 245;
+    --background-rgb: 31, 28, 25;
   }
 }
 
@@ -22,6 +23,54 @@ body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
   font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Smooth scroll-linked progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(var(--accent-rgb), 0.6), rgba(var(--accent-rgb), 1));
+  z-index: 100;
+  transform-origin: left;
+}
+
+/* Section divider gradient */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb), 0.3), transparent);
+}
+
+/* Clip-path reveal animation */
+@keyframes clipReveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Soft glow pulse */
+@keyframes softGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.05);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(var(--accent-rgb), 0.12);
+  }
+}
+
+/* Smooth underline grow animation */
+@keyframes underlineGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
 @layer utilities {
