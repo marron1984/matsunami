@@ -36,7 +36,6 @@ export default function Footer() {
 
   return (
     <footer
-      id="contact"
       ref={ref}
       className="bg-off-white py-16 md:py-24 px-6 md:px-12"
     >
