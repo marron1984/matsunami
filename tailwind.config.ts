@@ -19,8 +19,8 @@ const config: Config = {
         'accent-soft': '#D4C4AD',
       },
       fontFamily: {
-        serif: ['var(--font-noto-serif)'],
-        sans: ['var(--font-inter)'],
+        serif: ['"Noto Serif JP"', 'serif'],
+        sans: ['"Inter"', 'sans-serif'],
       },
       borderRadius: {
         'soft': '1rem',
