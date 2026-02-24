@@ -1,18 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Serif_JP, Inter } from "next/font/google";
 import "./globals.css";
-
-const notoSerifJP = Noto_Serif_JP({
-  subsets: ["latin"],
-  variable: "--font-noto-serif",
-  weight: ["400", "500", "600", "700"],
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  weight: ["400", "500", "600"],
-});
 
 export const metadata: Metadata = {
   title: "MMA DESIGN | 株式会社 松浪光倫建築計画室",
@@ -25,7 +12,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${notoSerifJP.variable} ${inter.variable}`}>
+    <html lang="ja">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif+JP:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="antialiased">{children}</body>
     </html>
   );
